@@ -1,0 +1,10 @@
+{
+	"id": "flexdown-plugin",
+	"name": "Flexdown Plugin",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Build flexible tables and column layouts using flex-box css",
+	"author": "Jacob Mouka",
+	"authorUrl": "https://obsidian.md",
+	"isDesktopOnly": false
+}

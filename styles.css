@@ -1,0 +1,66 @@
+
+body {
+	--flexdown-border-color:  #ccc;
+}
+
+.block-language-flexdown {
+	margin:  1em 0;
+}
+
+.flexdown-row {
+	display: flex;
+	flex-wrap:  wrap;
+}
+
+.flexdown-column {
+	flex: 1;
+	padding: 0px 10px;
+}
+
+/* Emphasize rows marked as headers */
+.flexdown-header-row {
+	background: #eee;
+	font-weight: bold;
+}
+
+/* Images scale with their cell by default, but still respect their set width. */
+.flexdown-column img {
+	max-width:  100%;
+}
+.flexdown-column > * {
+	margin: 5px 0;
+}
+
+/* this is added to the parent of the entire block of rows & columns */
+.flexdown-border {
+	border:  1px solid var(--flexdown-border-color);
+}
+.flexdown-border .flexdown-row {
+	border-bottom: 1px solid var(--flexdown-border-color);
+}
+.flexdown-border .flexdown-row:last-child {
+	border: none;
+}
+.flexdown-border .flexdown-column {
+	border-right:  1px solid var(--flexdown-border-color);
+}
+.flexdown-border .flexdown-column:last-child {
+	border:  none;
+}
+
+table.flexdown {
+
+}
+
+table.flexdown th {
+	background: #eee;
+	font-weight: bold;
+}
+table.flexdown td > img,
+table.flexdown th > img {
+	max-width: 100%;
+}
+table.flexdown td > *,
+table.flexdown th > * {
+	margin: 0;
+}
