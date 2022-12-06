@@ -35,7 +35,7 @@ Cool, right? And it doesn't have to be a grid!
 ````
 
 **Output**
-![[basic.png.png]]
+![Basic usage](assets/basic.png.png)
 
 ## Options
 
@@ -59,7 +59,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 ````
 
 **Output**
-![[noborder.png.png]]
+![No border](assets/noborder.png.png)
 
 ### `flex:`
 
@@ -87,7 +87,7 @@ This number is bigger
 ````
 
 **Output**
-![[flexoptions.png]]
+![Flex option](assets/flexoptions.png)
 
 This option sets the inline `flex` CSS attribute on each column. Specify as many (or few) as you like, separated by commas.
 
@@ -148,7 +148,7 @@ Mushrooms
 ````
 
 **Output**
-![[header-basics.png.png]]
+![Header example](assets/header-basics.png.png)
 
 ## CSS Style
 These are the styles used, which can be customized:
