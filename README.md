@@ -1,73 +1,180 @@
-# Obsidian Sample Plugin
+# Flexdown Obisidian Plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This [Obsidian](https://obsidian.md) plugin lets you create layouts with flexible columns (using the [flexbox model](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)) or tables. It is intended to be a complement to markdown tables. Some of the pain points it solves:
+- Cells can have complex markdown like lists, paragraphs, and images.
+- The layout does not need to be a grid.
+- It is easy to manage layouts (and tables) with lots of data.
+- It is simple to convert regular markdown into a flexdown layout (and revert it) becaues the tags flow between the data, i.e., just replace blank lines with column and row dividers, and add the start & end tags.
+- It has many options for controlling the layout.
 
-This project uses Typescript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
+## Basic Usage
 
-**Note:** The Obsidian API is still in early alpha and is subject to change at any time!
+Create the layout with a **flexdown** code block, eg:
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Changes the default font color to red using `styles.css`.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+````
+```flexdown
+```
+````
 
-## First time developing plugins?
+To make new columns, put a "|" on a new line. To make new rows, put a "---" on a new line. 
 
-Quick starting guide for new plugin devs:
+````
+```flexdown
+This is great! I can have a list:
+- with 
+- some
+- items
+|
+And a second column can have
+paragraphs
+**and**
+many other items.
+---
+Cool, right? And it doesn't have to be a grid!
+```
+````
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+**Output**
+![[basic.png.png]]
 
-## Releasing new releases
+## Options
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+Options start with "\%\%". The options are usually specified at the start of the block, but it's not necessary, and there are exceptions.
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+### `border: none`
 
-## Adding your plugin to the community plugin list
+**Usage**
+```
+%% border: none
+```
 
-- Check https://github.com/obsidianmd/obsidian-releases/blob/master/plugin-review.md
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+Render the layout without a border, eg
+````
+```flexdown
+%% border: none
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+|
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+```
+````
 
-## How to use
+**Output**
+![[noborder.png.png]]
 
-- Clone this repo.
-- `npm i` or `yarn` to install dependencies
-- `npm run dev` to start compilation in watch mode.
+### `flex:`
 
-## Manually installing the plugin
+**Usage**
+```
+%% flex: <column 1 flex value>, <column 2 flex value>, ...
+```
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+Specify column width ratios with the flex option. For example:
+````
+```flexdown
+%% flex: 1, 3, 7
+A
+|
+123
+|
+This number is small
+---
+B
+|
+456
+|
+This number is bigger
+```
+````
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+**Output**
+![[flexoptions.png]]
+
+This option sets the inline `flex` CSS attribute on each column. Specify as many (or few) as you like, separated by commas.
+
+The **flex value** can be any of the variations of the [flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex), eg
+```
+// Specify only flex-grow
+flex: 1
+
+// Specify flex-grow and flex-basis
+flex: 0 100px
+```
+
+The default style is `flex: 1`
 
 
-## API Documentation
+### `flex-all:`
 
-See https://github.com/obsidianmd/obsidian-api
+**Usage**
+```
+%% flex-all: <flex value>
+```
+
+Set the `flex` style for all items. The `%% flex` option can still be used and takes precedence.
+
+### `display: table`
+
+**Usage**
+```
+%% display: table
+```
+
+Render the layout as a table instead of flexbox. This is useful if you need a grid or need the cells to line up, because flexbox can be too flexible sometimes.
+
+### `header`
+
+**Usage**
+```
+%% header
+```
+
+Place this at the start of any row that you want to emphasize, and it will be rendered with a background color and bold text.
+
+````
+```flexdown
+%% header
+Food
+|
+Likes
+---
+Ice-cream
+|
+100%
+---
+Mushrooms
+|
+25%
+```
+````
+
+**Output**
+![[header-basics.png.png]]
+
+## CSS Style
+These are the styles used, which can be customized:
+```css
+/* Change the border color with this variable */
+--flexdown-border-color:  #ccc;
+
+.flexdown-row 
+.flexdown-column 
+
+/* Emphasize rows marked as headers */
+.flexdown-header-row
+
+/*
+  When a border is rendered, this class is added to
+  the parent of all the .flexdown-row elements, so you can
+  customize these classes.
+*/
+.flexdown-border
+.flexdown-border .flexdown-row
+.flexdown-border .flexdown-column
+
+/* When "display: table" is used to render as <table></table>: */
+table.flexdown 
+table.flexdown th
+table.flexdown td > img 
+table.flexdown td > *
+```
+
