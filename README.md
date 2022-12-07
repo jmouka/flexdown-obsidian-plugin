@@ -35,7 +35,7 @@ Cool, right? And it doesn't have to be a grid!
 ````
 
 **Output**
-![Basic usage](basic.jpg)
+![Basic usage](assets/basic.jpg)
 
 
 Images resize to fit their cells by default, eg:
@@ -85,7 +85,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 ````
 
 **Output**
-![No border](noborder.jpg)
+![No border](assets/noborder.jpg)
 
 ### `flex:`
 
@@ -174,7 +174,7 @@ Mushrooms
 ````
 
 **Output**
-![Header example](header-basics.jpg)
+![Header example](assets/header-basics.jpg)
 
 
 ## CSS Style
