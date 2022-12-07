@@ -35,7 +35,33 @@ Cool, right? And it doesn't have to be a grid!
 ````
 
 **Output**
-![Basic usage](assets/basic.png.png)
+![Basic usage](basic.jpg)
+
+
+Images resize to fit their cells by default, eg:
+
+````
+```flexdown
+%% flex-all: 200px
+%% border: none
+![Ocean 1](ocean1.jpeg)
+|
+![Ocean 2](ocean2.jpeg)
+|
+![Ocean 3](ocean3.jpeg)
+|
+![Ocean 4](ocean4.jpeg)
+|
+![Ocean 5](ocean5.jpeg)
+|
+![Ocean 6](ocean6.jpeg)
+---
+![Turtle](turtle.jpg)
+```
+````
+
+**Output**
+![photo grid](assets/ocean.jpg)
 
 ## Options
 
@@ -59,7 +85,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 ````
 
 **Output**
-![No border](assets/noborder.png.png)
+![No border](noborder.jpg)
 
 ### `flex:`
 
@@ -87,7 +113,7 @@ This number is bigger
 ````
 
 **Output**
-![Flex option](assets/flexoptions.png)
+![Flex option](assets/flexoptions.jpg)
 
 This option sets the inline `flex` CSS attribute on each column. Specify as many (or few) as you like, separated by commas.
 
@@ -148,7 +174,8 @@ Mushrooms
 ````
 
 **Output**
-![Header example](assets/header-basics.png.png)
+![Header example](header-basics.jpg)
+
 
 ## CSS Style
 These are the styles used, which can be customized:
@@ -177,4 +204,3 @@ table.flexdown th
 table.flexdown td > img 
 table.flexdown td > *
 ```
-
