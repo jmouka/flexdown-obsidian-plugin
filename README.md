@@ -18,6 +18,7 @@ Create the layout with a **flexdown** code block, eg:
 
 To make new columns, put a "|" on a new line. To make new rows, put a "---" on a new line. 
 
+**Example 1**
 ````
 ```flexdown
 This is great! I can have a list:
@@ -37,7 +38,7 @@ Cool, right? And it doesn't have to be a grid!
 **Output**
 ![Basic usage](assets/basic.jpg)
 
-
+**Example 2**
 Images resize to fit their cells by default. This example shows several features:
 - Hide the border with the [border:none](#bordernone) option.
 - Set the flex (resizing) rule for all the items using the [flex-all](#flex-all) option. The items are set an initial width of 200 pixels, but are still allowed to grow to fill the space.
@@ -81,7 +82,7 @@ Flexdown will render a border by default, but you can hide it with this option.
 %% border: none
 ```
 
-Render the layout without a border, eg
+**Example**
 ````
 ```flexdown
 %% border: none
@@ -101,7 +102,9 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 %% flex: <column 1 flex value>, <column 2 flex value>, ...
 ```
 
-Specify column width ratios with the flex option. For example:
+Specify column width rules ([CSS flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)) with the flex option. The default style is `flex: 1`
+
+**Example**
 ````
 ```flexdown
 %% flex: 1, 3, 7
@@ -124,7 +127,7 @@ This number is bigger
 
 This option sets the inline `flex` CSS attribute on each column. Specify as many (or few) as you like, separated by commas.
 
-The **flex value** can be any of the variations of the [flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex), eg
+The **flex value** can be any of the variations of the [flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex), e.g.:
 ```
 // Specify only flex-grow
 flex: 1
@@ -133,7 +136,6 @@ flex: 1
 flex: 0 100px
 ```
 
-The default style is `flex: 1`
 
 
 ### `flex-all:`
@@ -163,6 +165,7 @@ Render the layout as a table instead of flexbox. This is useful if you need a gr
 
 Place this at the start of any row that you want to emphasize, and it will be rendered with a background color and bold text.
 
+**Example**
 ````
 ```flexdown
 %% header
