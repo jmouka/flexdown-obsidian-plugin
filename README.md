@@ -39,6 +39,7 @@ Cool, right? And it doesn't have to be a grid!
 ![Basic usage](assets/basic.jpg)
 
 **Example 2**
+
 Images resize to fit their cells by default. This example shows several features:
 - Hide the border with the [border:none](#bordernone) option.
 - Set the flex (resizing) rule for all the items using the [flex-all](#flex-all) option. The items are set an initial width of 200 pixels, but are still allowed to grow to fill the space.
