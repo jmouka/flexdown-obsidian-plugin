@@ -26,7 +26,7 @@ export default class Flexdown extends Plugin {
 		// This adds an editor command that can perform some operation on the current editor instance
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
-		this.addSettingTab(new SampleSettingTab(this.app, this));
+		// this.addSettingTab(new SampleSettingTab(this.app, this));
 
 		// If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)
 		// Using this function will automatically remove the event listener when this plugin is disabled.
@@ -34,12 +34,7 @@ export default class Flexdown extends Plugin {
 		// 	console.log('click', evt);
 		// });
 		
-		
-		// what does this do?
-		// registerMarkdownPostProcessor(postProcessor: MarkdownPostProcessor, sortOrder?: number): MarkdownPostProcessor;
-		
 		let registered = this.registerMarkdownCodeBlockProcessor('flexdown', this.renderFlexdown);
-
 	}
 
 	onunload() {
@@ -73,7 +68,9 @@ export default class Flexdown extends Plugin {
 }
 
 
+/*
 
+No settings yet
 
 class SampleSettingTab extends PluginSettingTab {
 	plugin: Flexdown;
@@ -103,3 +100,5 @@ class SampleSettingTab extends PluginSettingTab {
 				}));
 	}
 }
+
+*/
