@@ -103,7 +103,9 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 %% flex: <column 1 flex value>, <column 2 flex value>, ...
 ```
 
-Specify column width rules ([CSS flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)) with the flex option. The default style is `flex: 1`
+Specify column width rules with the flex option. This option sets the inline [CSS flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) on the columns. Enter values for as many (or few) columns as you like, separated by commas.
+
+The default style is `flex: 1`
 
 **Example**
 ````
@@ -126,14 +128,12 @@ This number is bigger
 **Output**
 ![Flex option](assets/flexoptions.jpg)
 
-This option sets the inline `flex` CSS attribute on each column. Specify as many (or few) as you like, separated by commas.
-
-The **flex value** can be any of the variations of the [flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex), e.g.:
-```
-// Specify only flex-grow
+The **flex values** can be any of the variations of the [CSS flex attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/flex), e.g.:
+```CSS
+/* Specify only flex-grow */
 flex: 1
 
-// Specify flex-grow and flex-basis
+/* Specify flex-grow and flex-basis, e.g. this column won't grow and will stay 100px wide: */
 flex: 0 100px
 ```
 
@@ -146,7 +146,7 @@ flex: 0 100px
 %% flex-all: <flex value>
 ```
 
-Set the `flex` style for all items. The `%% flex` option can still be used and takes precedence.
+Set the `flex` style for all items. The `%% flex` option can also be used and takes precedence.
 
 ### `display: table`
 
@@ -164,7 +164,7 @@ Render the layout as a table instead of flexbox. This is useful if you need a gr
 %% header
 ```
 
-Place this at the start of any row that you want to emphasize, and it will be rendered with a background color and bold text.
+Place this at the start of **any** row that you want to emphasize, and it will be rendered with a background color and bold text.
 
 **Example**
 ````
