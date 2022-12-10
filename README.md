@@ -191,7 +191,7 @@ Mushrooms
 
 This plugin has not yet been submitted to the Obsidian plugin registry (soon!).
 
-To manually install the plugin, download [dist/flexdown.zip](dist/flexdown.zip) and unzip it in the `.obsidian/plugins` folder of your Obsidian vault. You'll have to turn off **Obsidian settings > Community Plugins > Restricted mode** in [Obsidian settings](https://help.obsidian.md/Advanced+topics/Community+plugins) (this is required to use any third-party plugins). 
+To manually install the plugin, download [dist/flexdown.zip](dist/flexdown.zip) and unzip it in the `.obsidian/plugins` folder of your Obsidian vault. You'll have to turn off **Obsidian settings > Community Plugins > Restricted mode** in [Obsidian settings](https://help.obsidian.md/Advanced+topics/Community+plugins) (this is required to use any third-party plugins). Finally restart Obsidian (or View > Force Reload). 
 
 
 ## CSS Style
