@@ -1,4 +1,12 @@
-import { App, MarkdownPostProcessorContext, MarkdownRenderer, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { 
+	App, 
+	MarkdownPostProcessorContext, 
+	MarkdownRenderer, 
+	Plugin, 
+	PluginSettingTab, 
+	Setting, 
+	Editor, 
+	MarkdownView} from 'obsidian';
 import flexdown from 'src/flexdown.js';
 
 interface FlexdownSettings {
@@ -13,16 +21,16 @@ export default class Flexdown extends Plugin {
 	settings: FlexdownSettings;
 
 	async onload() {
-		await this.loadSettings();
+		// await this.loadSettings();
 
 		// This adds a simple command that can be triggered anywhere
-		// this.addCommand({
-		// 	id: 'open-sample-modal-simple',
-		// 	name: 'Open sample modal (simple)',
-		// 	callback: () => {
-		// 		new SampleModal(this.app).open();
-		// 	}
-		// });
+		this.addCommand({
+			id: 'flexdown-new-block',
+			name: 'Insert new',
+			editorCallback: (editor: Editor, view: MarkdownView) => {
+				editor.replaceRange("```flexdown\n\n```\n", editor.getCursor());
+			}
+		});
 		// This adds an editor command that can perform some operation on the current editor instance
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
@@ -41,15 +49,18 @@ export default class Flexdown extends Plugin {
 
 	}
 
-	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-	}
+	// async loadSettings() {
+	// 	this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+	// }
 
-	async saveSettings() {
-		await this.saveData(this.settings);
-	}
+	// async saveSettings() {
+	// 	await this.saveData(this.settings);
+	// }
 
 	renderFlexdown(source: string, el: HTMLElement, ctx: MarkdownPostProcessorContext) {
+		// el.addEventListener('click', event=>{
+		// 	console.log("we got a click", el);
+		// });
 		let data = flexdown.parse(source);
 		flexdown.render(data, el, 
 			// function to create a new html node
