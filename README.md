@@ -1,4 +1,4 @@
-# Flexdown Obisidian Plugin
+# Flexdown Obsidian Plugin
 
 This [Obsidian](https://obsidian.md) plugin lets you create layouts with flexible columns (using the [flexbox model](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)) or tables. It is intended to be a complement to markdown tables. Some of the pain points it solves:
 - Cells can have complex markdown like lists, paragraphs, and images.
